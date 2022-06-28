@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar background h-nav">
+        <div class="logo">
+            <img src="image/logo.png" alt="logo">
+        </div>
+        <ul class="nav-list v-nav">
+
+            <li><a href="#home">Home</a></li>
+            <li><a href="#home">Contact Us</a></li>
+            <li><a href="#home">BLOG</a></li>
+            <li><a href="#home">About Us</a></li>
+        </ul>
+        <div class="rightnav v-nav">
+            <input type="text" name="search" id="search">
+            <button class="btn-sm">Search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <section class="background firstsec">
+        <div class="box-main">
+            <div class="firsthalf">
+                <p class="text-big">Numerical Methods</p>
+                <p class="text-small"> Providng a one Touch Soluton for your Numerical Problems.
+                </p>
+                <div class="buttons">
+                    <button id="OnclickMethod" class="btn"
+                        onclick="smoothScroll(document.getElementById('MethodSelection'))">Select Method </button>
+                </div>
+            </div>
+            <div class="secondhalf">
+                <img src="image/logo.png" alt="image">
+            </div>
+        </div>
+    </section>
+    <section id="MethodSelection" class="secright">
+        <div class="paras">
+            <div class="box">
+                <p class="sectiontag text-big"> Select Method</p>
+                <label for="Method">Choose a Method:</label>
+                <select onchange="showOptions(this)" class="button name" id="Method">
+                    <option id='' value=''></option>
+                    <option id="Bis" value="Bisec">Bisection</option>
+                    <option id="NR" value="NR">Newton Ramphson </option>
+                    <option id="Sc" value="Sec">Secant</option>
+                    <option id="rf" value="RF">Regular Falsi</option>
+                    <option id="jb" value="JB">Jacobi</option>
+                    <option id="gs" value="GS">Gauss Seidal</option>
+                    <option id="eu" value="EU">Euler Method</option>
+                    <option id="finter" value="FI">Newton Forward Interpolation</option>
+                    <option id="Binter" value="BI">Newton Backword Interpolation</option>
+                    <option id="Nddiff" value="NDD">Newton Divided Difference</option>
+                    <option id="lag" value="LG">Lagrange Interpolation</option>
+                    <option id="stirling" value="SR">Stirling</option>
+                    <option id="Bes" value="Bess">Beseel</option>
+                    <option id="Evr" value="ER">Evretts</option>
+                    <option id="sim8" value="sim8">Simpson 1/8</option>
+                    <option id="simpson3/8" value="SR">Simposn3/8</option>
+                    <option id="trep3" value="Trep">Trapezium</option>
+                    <!--  -->
+
+
+
+
+                </select>
+
+                <br><br>
+                <!-- <input id="Click" onclick=bisection(-200,300) class="btn" type="submit" value="Submit"> -->
+            </div>
+
+        </div>
+        <!-- <div class="thumbnail">
+            <img src="image/img6.jpg" alt="logo" class="classfluid">
+        </div> -->
+
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div" class="box" style="display: none;">
+                Enter Equation: <input id="equation" type="string" name="equation">
+                Enter a:<input id="Va" type="int" name="Voa">
+                Enter b:<input id="Vb" type="int" name="Vob">
+                <button id="find"
+                    onclick=" isInputValid(),bisection(Number(document.getElementById('Va').value),Number(document.getElementById('Vb').value)),createTable() ">Find</button>
+                <p id="check"></p>
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div2" class="box" style="display: none;" >
+                Enter Equation: <input id="NRequation" type="string" name="equation">
+                Enter x:<input id="Vx" type="int" name="Vox">
+                <button id="find"
+                    onclick=" isInputValid(),newtonRaphson(Number(document.getElementById('Vx').value)),createNTable()">Find</button>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div3" class="box" style="display: none;">
+                Enter Equation: <input id="RFequation" type="string" name="equation">
+                Enter a:<input id="VRFa" type="int" name="VORFa">
+                Enter b:<input id="VRFb" type="int" name="VORFb">
+                <button id="find" onclick=" isInputValid(),regulaFalsi( Number(document.getElementById('VRFa').value),Number(document.getElementById('VRFb').value)),createRTable()">Find</button>
+                <p id="check"></p>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div4" class="box" style="display: none;">
+                Enter Equation: <input id="Sequation" type="string" name="equation">
+                Enter a:<input id="Sa" type="int" name="SOFa">
+                Enter b:<input id="Sb" type="int" name="SOFb">
+                <button id="find" onclick="isInputValid(), secant( Number(document.getElementById('Sa').value),Number(document.getElementById('Sb').value)),createSTable()">Find</button>
+                <p id="check"></p>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div5" class="box" style="display: none;">
+                Enter Equation X1: <input id="J1equation" type="string" name="equation">
+                Enter Equation X2: <input id="J2equation" type="string" name="equation">
+                Enter Equation X3: <input id="J3equation" type="string" name="equation">
+                <button id="find" onclick="isInputValid(), Jacobi(),createJacobiTable()">Find</button>
+                <p id="check"></p>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <!-- <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div5" class="box" style="display: none;">
+                Enter Equation X: <input id="J1equation" type="string" name="equation">
+                Enter Equation Y: <input id="J2equation" type="string" name="equation">
+                Enter Equation Z: <input id="J3equation" type="string" name="equation">
+                <button id="find" onclick=" Jacobi(),createJacobiTable()">Find</button>
+                <p id="check"></p>
+
+                "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid()
+
+            </div>
+        </div>
+    </section> -->
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div6" class="box" style="display: none;">
+                Enter Equation X1: <input id="GS1equation" type="string" name="equation">
+                Enter Equation X2: <input id="GS2equation" type="string" name="equation">
+                Enter Equation X3: <input id="GS3equation" type="string" name="equation">
+                <button id="find" onclick="isInputValid()" >Find</button>
+                <p id="check"></p>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div7" class="box" style="display: none;">
+                Enter Equation dy/dx: <input id="Eulerequation" type="string" name="equation">
+                Enter initial value of x:<input id="Ex" type="int" name="EOFx">
+                Enter initial value of y:<input id="Ey" type="int" name="EOFy">
+                <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;     Enter no of Steps:<input id="Size" type="int" name="Step size">
+                Enter Approximation value:<input id="ap" type="int" name="apv">
+                <button id="find"
+                    onclick=" isInputValid(),euler(Number(document.getElementById('Ex').value),Number(document.getElementById('Ey').value),Number(document.getElementById('Size').value),Number(document.getElementById('ap').value)) ">Find</button>
+                <p id="check"></p>
+
+                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div8" class="box" style="display: none;">
+                <!-- Enter A values<input type="number" name="number" id="num" placeholder="enter number"> -->
+                <button onclick="forinter()">click</button><br><br>
+                <div id="inputs"></div>
+                                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="thumbnail2">
+            <img src="image/img7.jpg" alt="logo" class="classfluid">
+        </div> -->
+
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div9" class="box" style="display: none;">
+                <!-- Enter A values<input type="number" name="number" id="num" placeholder="enter number"> -->
+                <button onclick="backinter()">click</button><br><br>
+                <div id="inputs"></div>
+                                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div10" class="box" style="display: none;">
+                <!-- Enter A values<input type="number" name="number" id="num" placeholder="enter number"> -->
+                <button onclick="newtondivided()">click</button><br><br>
+                <div id="inputs"></div>
+                                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secleft">
+        <div class="paras">
+            <div id="hidden_div11" class="box" style="display: none;">
+                Enter A values<input type="number" name="number" id="num" placeholder="enter number">
+                <button onclick="addFields(),interpolate(3)">click</button><br><br>
+                <div id="inputs"></div>
+                
+                
+                                <!-- "bisection(document.getElementById('Va').value,document.getElementById('Vb').value); isInputValid() -->
+
+            </div>
+        </div>
+    </section>
+    <section class="secright1">
+        <div class="paras3">
+            <div id="Answer" class="box">
+              
+            </div>
+        </div>
+
+    </section>
+    <!-- <section class="secright1" style="display: none;">
+        <div class="paras3">
+            <div id="NTable" class="box">
+
+            </div>
+        </div>
+    </section> -->
+    <!-- <section class="contact">
+        <h2 class="text-center">Contact Us</h2>
+        <div class="form">
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <input type="text" name="Email" id="Email" placeholder="Enter your Email">
+        
+        </div>
+    </section>
+    <footer class="background">
+        <p class="text-footer">
+            Copyrights @2020- All rights reserved
+        </p>
+    </footer> -->
+    <script src="Bisection.js"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <script src="NewtonRamphson.js"></script>
+    <script src="RegularFalsi.js"></script>
+    <script src="algebra-0.2.6.min.js"></script>
+    <script src="all.min.js"></script>
+    <script src="jacobiMethod.js"></script>
+    <script src="GaussSeidal.js"></script>
+    <script src="eulerMethod.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="ForwardInterpolation.js"></script> -->
+    <script src="input.js"></script>
+    <script src="ForInter.js"></script>
+    <script src="backinter.js"></script>
+    <!-- <script src="secantMethod.js"></script> -->
+    <script src="sc.js"></script>
+    <script src="newtondivideddiff.js"></script>
+    <script src="lagrange.js"></script>
+    <script>
+
+        window.smoothScroll = function (target) {
+            var scrollContainer = target;
+            do { //find scroll container
+                scrollContainer = scrollContainer.parentNode;
+                if (!scrollContainer) return;
+                scrollContainer.scrollTop += 1;
+            } while (scrollContainer.scrollTop == 0);
+
+            var targetY = 0;
+            do { //find the top of target relatively to the container
+                if (target == scrollContainer) break;
+                targetY += target.offsetTop;
+            } while (target = target.offsetParent);
+
+            scroll = function (c, a, b, i) {
+                i++; if (i > 30) return;
+                c.scrollTop = a + (b - a) / 30 * i;
+                setTimeout(function () { scroll(c, a, b, i); }, 20);
+            }
+            // start scrolling
+            scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+        }
+        function add(){
+      var new_chq_no = parseInt($('#total_chq').val())+1;
+      var new_input="<input type='text' id='new_"+new_chq_no+"'>";
+      $('#new_chq').append(new_input);
+      $('#total_chq').val(new_chq_no)
+    }
+    function remove(){
+      var last_chq_no = $('#total_chq').val();
+      if(last_chq_no>1){
+        $('#new_'+last_chq_no).remove();
+        $('#total_chq').val(last_chq_no-1);
+      }
+    }
+// function addFields() {
+//   var number = document.getElementById('num').value;
+//   let arr=[];
+//   var container = document.getElementById("hidden_div8");
+//   container.innerHTML = '';
+
+
+// 	var table = '<table><thead><tr><th>X</th><th>f(X)</th></tr></thead><tbody>';
+// 	for (let i = 0; i < number; i++) {
+// 		table += '<tr><td>' +"<input id='number"+i+"' name='number"+i+"'>" + '</td>' + '<td>'  +"<input id='feq"+i+"' name='feq"+i+"'>" + '</td>'
+// 	}
+// 	table += '</tbody></table>';
+//     container.innerHTML = table
+   
+
+//   var button=document.createElement("button");
+//   button.innerHTML='Find'
+//   button.onclick=function(){
+//     var value1array=[];
+//     var value2array=[];
+
+//       for(let i=0;i<number;i++){
+//         //  value1array[i] = value1array + document.getElementById('number'+i).value
+//          value1array[i] = Number( document.getElementById('number'+i).value);
+//            console.log(value1array[i])
+//         //  value2array = value2array + document.getElementById('feq'+i).value
+//          value2array[i] = Number( document.getElementById('feq'+i).value);
+
+       
+//       }
+//    console.log(value1array,value2array+"array");
+//   }
+//   container.appendChild(button);
+
+// }
+function addFields1() {
+		// body...
+		var input = '';
+		var number = document.getElementById('num').value;
+		for(var i=0;i<number;i++)
+		{
+			input +="<input id='number"+i+"' name='number"+i+"'><br>";
+		}
+		document.getElementById('hiiden_div8').innerHTML = input;
+		
+	}
+  
+    </script>
+</body>
+
+</html>
